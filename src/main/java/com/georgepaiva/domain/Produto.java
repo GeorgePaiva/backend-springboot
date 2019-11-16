@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 // Classe Produto que implementa o Serializable(Interface que implementa conversão para uma sequência de bytes).
 @Entity // Significa que a classe é uma entidade do JPA.
 public class Produto implements Serializable {
@@ -25,6 +27,7 @@ public class Produto implements Serializable {
 	private Double preco;
 
 	// Associações
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA", 
 		joinColumns = @JoinColumn(name = "produto_id"), 
