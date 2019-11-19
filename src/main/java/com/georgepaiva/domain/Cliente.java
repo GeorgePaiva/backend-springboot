@@ -28,7 +28,9 @@ public class Cliente implements Serializable {
 	private String email;
 	private String cpfOuCnoj;
 	private Integer tipo;
-	
+
+	private List<Pedido> pedidos = new ArrayList<>();
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
@@ -96,6 +98,14 @@ public class Cliente implements Serializable {
 
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	public Set<String> getTelefones() {
