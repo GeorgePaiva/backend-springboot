@@ -2,8 +2,11 @@ package com.georgepaiva.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import com.georgepaiva.enums.EstadoPagamento;
 
+@Entity
 public class PagamentoComBoleto extends Pagamento {
 	private static final long serialVersionUID = 1L;
 
