@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.georgepaiva.domain.Categoria;
+import com.georgepaiva.dto.CategoriaDTO;
 import com.georgepaiva.repositories.CategoriaRepository;
 import com.georgepaiva.services.exceptions.DataIntegrityException;
 import com.georgepaiva.services.exceptions.ObjectNotFoundException;
@@ -54,5 +55,10 @@ public class CategoriaService {
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
+	}
+
+	// Método auxiliar que instância uma Categoria a partir de DTO.
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
 	}
 }
